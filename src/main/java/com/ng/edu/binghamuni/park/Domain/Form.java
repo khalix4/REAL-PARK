@@ -44,7 +44,7 @@ public class Form {
         // toString method for debugging or logging
         @Override
         public String toString() {
-            return "User{" +
+            return "Form{" +
                     "username='" + username + '\'' +
                     ", email='" + email + '\'' +
                     ", password='" + password + '\'' +
