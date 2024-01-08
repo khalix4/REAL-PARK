@@ -3,6 +3,7 @@ package com.ng.edu.binghamuni.park.Domain;
 import java.util.HashMap;
 import java.util.Map;
 
+// Represents a form field
 class FormField {
     private String label;
     private String type;
@@ -13,22 +14,17 @@ class FormField {
     }
 
     public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
+        return null;
     }
 
     public String getType() {
-        return type;
+        return null;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    // Getters and setters (omitted for brevity)
 }
 
+// Represents a customer information form with specific fields
 class CustomerInformationForm {
     private String title;
     private Map<String, FormField> fields;
@@ -57,18 +53,18 @@ class CustomerInformationForm {
         return fields.get(fieldName);
     }
 
-    // expeccted setters and getters !!!!!!!!!!!!!!!!!!!!!!!
+    // Getters and setters (omitted for brevity)
 }
 
-
-public class Manu {
-    public static void main(String[] args) {
+// Example of how to use the customer information form
+    public class CustomerForm {
+        public static void main(String[] args) {
         CustomerInformationForm customerForm = new CustomerInformationForm("Customer Information");
 
         FormField nameField = customerForm.getField("name");
         System.out.println("Field Label: " + nameField.getLabel());
         System.out.println("Field Type: " + nameField.getType());
 
-
+        // You can similarly access other fields and perform operations as needed
     }
 }
