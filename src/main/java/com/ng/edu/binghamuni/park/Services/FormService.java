@@ -1,4 +1,10 @@
-package main.java.com.ng.edu.binghamuni.park.Services;
+package com.ng.edu.binghamuni.park.Services;
 
-public class FormService {
+import com.ng.edu.binghamuni.park.Domain.customerInformationForm;
+
+import java.util.List;
+
+public interface FormService {
+    customerInformationForm submit(customerInformationForm customerInfo);
+    List<customerInformationForm> dropDown();
 }
