@@ -45,7 +45,7 @@ class CustomerInformation {
     private String dateOfBirth;
 
     public CustomerInformation() {
-        // Default constructor
+
     }
 
     public CustomerInformation(String name, String address, String phone, String email, String stateOfOrigin, String dateOfBirth) {
