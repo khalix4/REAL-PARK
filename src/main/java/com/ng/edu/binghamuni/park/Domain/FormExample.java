@@ -34,10 +34,8 @@ class Form {
         return fields.get(fieldName);
     }
 
-    // Getters and setters (omitted for brevity)
 }
 
-// Represents customer information
 class CustomerInformation {
     private String name;
     private String address;
@@ -129,7 +127,7 @@ class VehicleInformation {
         this.engineType = engineType;
     }
 
-    // Getters and setters
+
     public String getBrand() {
         return brand;
     }
