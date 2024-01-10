@@ -107,7 +107,6 @@ class CustomerInformation {
     }
 }
 
-// Represents vehicle information
 class VehicleInformation {
     private String brand;
     private String model;
