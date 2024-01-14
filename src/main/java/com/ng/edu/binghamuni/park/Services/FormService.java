@@ -5,6 +5,13 @@ import com.ng.edu.binghamuni.park.Domain.customerInformationForm;
 import java.util.List;
 
 public interface FormService {
-    customerInformationForm submit(customerInformationForm customerInfo);
-    List<customerInformationForm> dropDown();
+    CustomerInformation saveCustomer(CustomerInformation customer);
+    long getTotalWebAddSourceCount();
+    long getTotalNewspaperSourceCount();
+    long getTotalWordOfMouthSourceCount();
+
+CustomerInformation getCustomerbyId(long id);
+List<CustomerInformation> getAllCustomer();
+CustomerInformation updateCustomer(CustomerInformation customerInformation);
+void deleteCustomer(long id);
 }
