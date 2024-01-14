@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface FormRepository extends JpaRepository <FormExample, Long> {
 
-    @Override
-    List<FormExample> findAll();
+    long countByAdSource(String adSource);
 }
