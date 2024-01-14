@@ -1,63 +1,52 @@
 package com.ng.edu.binghamuni.park.Domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 
-class FormField {
-    private String label;
-    private String type;
-
-    public FormField(String label, String type) {
-        this.label = label;
-        this.type = type;
-    }
-
-}
-
-
-class Form {
-    private String title;
-    private Map<String, FormField> fields;
-
-    public Form(String title) {
-        this.title = title;
-        this.fields = new HashMap<>();
-    }
-
-    public void addField(String fieldName, String label, String type) {
-        FormField field = new FormField(label, type);
-        fields.put(fieldName, field);
-    }
-
-    public FormField getField(String fieldName) {
-        return fields.get(fieldName);
-    }
-
-}
-
-class CustomerInformation {
+import java.time.LocalDate;
+@Entity(name = "customers")
+public class CustomerInformation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
     private String name;
     private String address;
     private String phone;
     private String email;
-    private String stateOfOrigin;
-    private String dateOfBirth;
 
-    public CustomerInformation() {
 
-    }
+    private String brand;
+   private String model;
+    private String color;
 
-    public CustomerInformation(String name, String address, String phone, String email, String stateOfOrigin, String dateOfBirth) {
+    private String adSource;
+
+    public CustomerInformation(Long id, String name, String address, String phone, String email, String brand, String model, String color, String adSource) {
+        Id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.stateOfOrigin = stateOfOrigin;
-        this.dateOfBirth = dateOfBirth;
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+        this.adSource = adSource;
     }
 
-    // Getters and setters
+    public CustomerInformation() {
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -90,43 +79,6 @@ class CustomerInformation {
         this.email = email;
     }
 
-    public String getStateOfOrigin() {
-        return stateOfOrigin;
-    }
-
-    public void setStateOfOrigin(String stateOfOrigin) {
-        this.stateOfOrigin = stateOfOrigin;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-}
-
-class VehicleInformation {
-    private String brand;
-    private String model;
-    private String color;
-    private String plateNumber;
-    private String engineType;
-
-    public VehicleInformation() {
-
-    }
-
-    public VehicleInformation(String brand, String model, String color, String plateNumber, String engineType) {
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.plateNumber = plateNumber;
-        this.engineType = engineType;
-    }
-
-
     public String getBrand() {
         return brand;
     }
@@ -151,39 +103,26 @@ class VehicleInformation {
         this.color = color;
     }
 
-    public String getPlateNumber() {
-        return plateNumber;
+    public String getAdSource() {
+        return adSource;
     }
 
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
+    public void setAdSource(String adSource) {
+        this.adSource = adSource;
     }
 
-    public String getEngineType() {
-        return engineType;
-    }
-
-    public void setEngineType(String engineType) {
-        this.engineType = engineType;
-    }
-}
-
- public class FormExample {
-    public static void main(String[] args) {
-        Form customerForm = new Form("Customer Information Form");
-        customerForm.addField("name", "Name", "text");
-        customerForm.addField("address", "Home Address", "text");
-        customerForm.addField("phone", "Phone Number", "tel");
-        customerForm.addField("email", "Email", "email");
-        customerForm.addField("stateOfOrigin", "State of Origin", "text");
-        customerForm.addField("dateOfBirth", "Date of Birth", "date");
-
-        Form vehicleForm = new Form("Vehicle Information Form");
-        vehicleForm.addField("brand", "Car Brand", "text");
-        vehicleForm.addField("model", "Car Model", "text");
-        vehicleForm.addField("color", "Car Color", "text");
-        vehicleForm.addField("plateNumber", "Plate Number", "text");
-        vehicleForm.addField("engineType", "Engine Type", "text");
-
+    @Override
+    public String toString() {
+        return "CustomerInformation{" +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", adSource='" + adSource + '\'' +
+                '}';
     }
 }
