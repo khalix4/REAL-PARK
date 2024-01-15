@@ -90,7 +90,7 @@ public class APIController {
             }
         }
         @GetMapping("deleteFormData/{id}")
-        public String deleteFormData(@PathVariable Long id, RedirectAttributes redirectAttributes){
+        public String deleteFormData(@PathVariable("id") long id, RedirectAttributes redirectAttributes){
             formService.deleteCustomer(id);
             redirectAttributes.addFlashAttribute("message", "Customer Data Deleted successfully");
 
