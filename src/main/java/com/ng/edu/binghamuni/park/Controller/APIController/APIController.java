@@ -36,7 +36,15 @@ public class APIController {
 
             return "FormContent";
         }
+@GetMapping("/showDashboard")
+        public String showDashboard(){
+                return "Dashboard";
+        }
 
+        @GetMapping("/showAdminForm")
+        public String showAdminForm(){
+                return "adminForm";
+        }
 
         @PostMapping ("/saveForm")
         public String saveForm(@ModelAttribute("customer") CustomerInformation customerInformation){
