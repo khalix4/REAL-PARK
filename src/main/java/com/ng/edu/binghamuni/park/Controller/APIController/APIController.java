@@ -37,6 +37,8 @@ public class APIController {
         }
 @GetMapping("/showDashboard")
         public String showDashboard(){
+            int numberOfCustomers = customerService.getTotalCustomers();
+        model.addAttribute("numberOfCustomers", numberOfCustomers);
                 return "Dashboard";
         }
 
