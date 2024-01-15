@@ -36,9 +36,22 @@ public class APIController {
             return "FormContent";
         }
 @GetMapping("/showDashboard")
-        public String showDashboard(){
-            int numberOfCustomers = customerService.getTotalCustomers();
+        public String showDashboard(Model model){
+            long numberOfCustomers = formService.getTotalCustomers();
+            long numberOfWebAd=formService.getTotalWebAddSourceCount();
+            long numberOfWordOfMouthAd=formService.getTotalWordOfMouthSourceCount();
+            long numberOfNewspaperAd=formService.getTotalNewspaperSourceCount();
         model.addAttribute("numberOfCustomers", numberOfCustomers);
+    model.addAttribute("numberOfWebAd", numberOfWebAd);
+    model.addAttribute("numberOfWordOfMouthAd", numberOfWordOfMouthAd);
+    model.addAttribute("numberOfNewspaperAd", numberOfNewspaperAd);
+
+    String highestAdSource = formService.calculateHighestAdSource();
+    double highestAdPercentage = formService.calculateHighestAdPercentage();
+
+    // Set attributes in the model
+    model.addAttribute("highestAdSource", highestAdSource);
+    model.addAttribute("highestAdPercentage", highestAdPercentage);
                 return "Dashboard";
         }
 

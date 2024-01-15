@@ -17,4 +17,6 @@ CustomerInformation getCustomerbyId(long id);
 List<CustomerInformation> getAllCustomer();
 CustomerInformation updateCustomer(CustomerInformation customerInformation);
 void deleteCustomer(long id);
+String calculateHighestAdSource();
+double calculateHighestAdPercentage();
 }

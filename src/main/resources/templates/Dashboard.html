@@ -136,18 +136,15 @@ main{
 }
 
 .web {
-  height: 200px;
+
 background-color: #004155;
 }
 
 .wordOfMouth {
-  height: 100px;
+
   background-color: black;
 }
 
-.newspaper {
-  height: 80px; /* Add a height for the newspaper bar */
-}
 
 .barTag {
   display: flex;
@@ -234,30 +231,31 @@ margin-bottom: 30px;
   
     <div class="box">
     <h2>No of Car<br> Sales</h2>
-  <p>150+</p></div></div>
+      <p th:text="${numberOfCustomers} + '+'"></p>
+  </div></div>
 
   <h2 class="analytics">Analytics</h2>
   <div class="analytics-container">
   <div class="barChart">
   <div class="yRow">
-  <p>50</p>
-  <p>45</p>
-  <p>40</p>
-  <p>35</p>
-  <p>30</p>
-  <p>25</p>
+  <p>22</p>
   <p>20</p>
-  <p>15</p>
+  <p>18</p>
+  <p>16</p>
+  <p>14</p>
+  <p>12</p>
   <p>10</p>
-  <p>5</p>
-  <p>0</p>
+  <p>8</p>
+  <p>6</p>
+  <p>4</p>
+  <p>2</p>
 
 </div>
 
 <div class="barContentContainer">
-<div class="bar web" style="left: 100px;"></div>
-<div class="bar wordOfMouth" style="left: 200px;"></div>
-<div class="bar newspaper" style="left: 300px;"></div></div>
+<div class="bar web"   th:style="'left: 100px; height: ' + ${numberOfWebAd} + 'px;'"></div>
+<div class="bar wordOfMouth"  th:style="'left: 200px; height: ' + ${numberOfWebAd} + 'px;'"></div>
+<div class="bar newspaper"  th:style="'left: 300px; height: ' + ${numberOfNewspaperAd} + 'px;'"></div></div>
 
 <div class="barTag">
   <div class="tag">
@@ -285,8 +283,8 @@ margin-bottom: 30px;
   <div class="highest">
   <h3>Highest Advertisement<br> Customer Source</h3>
 <div class="circle">
-<h3>Web</h3>
-<p>60%</p></div>
+  <h3 th:text="${highestAdSource}"></h3>
+  <p th:text="${highestAdPercentage} + '%'"></p>
 </div>
 
 
