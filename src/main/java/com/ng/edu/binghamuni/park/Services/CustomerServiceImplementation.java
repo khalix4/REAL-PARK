@@ -36,7 +36,7 @@ public class CustomerServiceImplementation implements FormService{
 
 @Override
     public long getTotalCustomers(){
-        return customerRepository.count();
+        return customerRepository.findAll().size();
     }
     @Override
     public CustomerInformation getCustomerbyId(long id) {
