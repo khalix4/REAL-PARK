@@ -34,7 +34,10 @@ public class CustomerServiceImplementation implements FormService{
         return customerRepository.countByadSource("WordOfMouth");
     }
 
-
+@Override
+    public long getTotalCustomers(){
+        return customerRepository.count();
+    }
     @Override
     public CustomerInformation getCustomerbyId(long id) {
         Optional<CustomerInformation> customer = customerRepository.findById(id);
