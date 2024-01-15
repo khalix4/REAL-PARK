@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM
+        "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Home</title>
     <meta charset="UTF-8" />
@@ -51,7 +53,8 @@
           <h1>Welcome to <br> <span class="park">PARK</span></h1>
           <p class="heroParagraph">Embark on a journey of unparalleled innovation and power with PARK. We don't just build cars; we craft experiences that redefine the very essence of driving. Unleash the thrill of the open road as our cutting-edge technology seamlessly blends with exquisite design, elevating every moment behind the wheel.</p>
 
-          <button class="orderbtn">REGISTER NOW<span class="material-symbols-outlined">
+          <button class="orderbtn"><a th:href="@{/showNewForm}">
+            REGISTER NOW</a><span class="material-symbols-outlined">
             arrow_right_alt
             </span></button>
         </div>
