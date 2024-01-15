@@ -11,6 +11,7 @@ public interface FormService {
     long getTotalWebAddSourceCount();
     long getTotalNewspaperSourceCount();
     long getTotalWordOfMouthSourceCount();
+    long getTotalCustomers();
 
 CustomerInformation getCustomerbyId(long id);
 List<CustomerInformation> getAllCustomer();
