@@ -1,0 +1,280 @@
+<!DOCTYPE html SYSTEM
+        "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+main{
+  display: flex;
+
+}
+.side-bar{
+  background-color: blue;
+  min-height: 100vh;
+  padding: 10px;
+  width: 30%;
+  color: white;
+}
+
+.menu-section{
+  margin-top: 50px;
+}
+.menu{
+  margin: 10px 0;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 10px;
+
+}
+.menu p{
+  font-family: "DM Sans";
+  font-size: 20px;
+}
+.menu:hover{
+  cursor: pointer;
+  background-color: gray
+  
+}
+
+.main-content{
+  padding: 30px;
+  width: 70%;
+  
+}
+.main-content h1{
+  margin-bottom: 50px;
+  color: blue;
+}
+.box-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.box{
+  width: 383px;
+  background-color: #D9D9D9;
+  padding: 20px;
+  text-align: center;
+}
+.box h2{
+  font-size: 20px;
+  font-family: "DM Sans";
+  margin-bottom: 15px;
+}
+.box p{
+  font-size: 30px;
+  color: blue;
+}
+.analytics{
+  margin-top: 30px;
+  color: blue;
+}
+.analytics{
+  margin: 30px 0;
+  color: blue;
+}
+.analytics-container{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.barChart {
+  display: flex;
+  gap: 5px;
+}
+
+.yRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.barContentContainer {
+  width: 300px;
+  background-color: gainsboro;
+  display: flex;
+  gap: 20px;
+  position: relative; /* Add position relative to .barContentContainer */
+}
+
+.bar {
+  width: 30px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+}
+
+.web {
+  height: 200px;
+background-color: blue;
+}
+
+.wordOfMouth {
+  height: 100px;
+  background-color: black;
+}
+
+.newspaper {
+  height: 80px; /* Add a height for the newspaper bar */
+}
+
+.barTag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+}
+
+.web-tag, .wordOfMouth-tag, .newspaper-tag {
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;
+  background-color: red;
+}
+.web-tag{
+  background-color: blue;
+}
+.wordOfMouth-tag{
+  background-color: black;
+}
+.highest{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.highest h3{
+text-align: center;
+margin-bottom: 30px;
+}
+.circle{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.circle h3{
+  font-size: 30px;
+}
+.circle p{
+  font-size: 40px;
+  font-weight: 700;
+}
+</style>
+  </head>
+  <body>
+   
+    <main>
+      <div class="side-bar">
+        <img src="logo.png" alt="park logo">
+        <div class="menu-section">
+        <div class="menu">
+        <img src="Chart.png" alt="home icon">
+      <p><a th:href="@{/showNewForm}">Home</a></p></div>
+
+      <div class="menu">
+      <img src="Dashboard 1.png" alt="dashboard icon">
+    <p><a th:href="@{/showDashboard}">Dashboard</a></p></div>
+
+    <div class="menu">
+    <img src="Profile.png" alt="profile icon">
+  <p><a th:href="@{/showFormTable}">Data Hub</a></p></div>
+        </div>
+      </div>
+
+      <div class="main-content">
+      <h1>Dashboard</h1>
+      <div class="box-section">
+      <div class="box">
+      <h2>No of PARK <br> Customers</h2>
+    <p>50</p></div>
+  
+    <div class="box">
+    <h2>No of Car<br> Sales</h2>
+  <p>150+</p></div></div>
+
+  <h2 class="analytics">Analytics</h2>
+  <div class="analytics-container">
+  <div class="barChart">
+  <div class="yRow">
+  <p>50</p>
+  <p>45</p>
+  <p>40</p>
+  <p>35</p>
+  <p>30</p>
+  <p>25</p>
+  <p>20</p>
+  <p>15</p>
+  <p>10</p>
+  <p>5</p>
+  <p>0</p>
+
+</div>
+
+<div class="barContentContainer">
+<div class="bar web" style="left: 40px;"></div>
+<div class="bar wordOfMouth" style="left: 120px;"></div>
+<div class="bar newspaper" style="left: 200px;"></div></div>
+
+<div class="barTag">
+  <div class="tag">
+  <div class="web-tag"></div>
+  <p>Web</p>
+
+</div>
+
+<div class="tag">
+<div class="wordOfMouth-tag"></div>
+<p>Word Of Mouth</p>
+
+</div>
+
+<div class="tag">
+<div class="newspaper-tag"></div>
+<p>Newspaper</p>
+
+</div>
+
+</div>
+
+  </div>
+   
+  <div class="highest">
+  <h3>Highest Advertisement Customer Source</h3>
+<div class="circle">
+<h3>Web</h3>
+<p>60%</p></div>
+</div>
+
+
+</div>
+    </div>
+    </main>
+  </body>
+</html>
