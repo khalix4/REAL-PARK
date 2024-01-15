@@ -1,7 +1,7 @@
 package com.ng.edu.binghamuni.park.Controller;
 
 import com.ng.edu.binghamuni.park.Domain.CustomerInformation;
-import com.ng.edu.binghamuni.park.Services.CustomerService;
+import com.ng.edu.binghamuni.park.Services.FormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    FormService customerService;
 
 
     @GetMapping("/customer")

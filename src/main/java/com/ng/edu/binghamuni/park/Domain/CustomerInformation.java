@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
 
-
-import java.time.LocalDate;
 @Entity(name = "customers")
 public class CustomerInformation {
     @Id
@@ -99,10 +97,6 @@ public class CustomerInformation {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getAdSource() {
         return adSource;
     }
@@ -110,6 +104,11 @@ public class CustomerInformation {
     public void setAdSource(String adSource) {
         this.adSource = adSource;
     }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
 
     @Override
     public String toString() {
@@ -122,7 +121,7 @@ public class CustomerInformation {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", color='" + color + '\'' +
-                ", adSource='" + adSource + '\'' +
+                ", ad_source='" + adSource + '\'' +
                 '}';
     }
 }

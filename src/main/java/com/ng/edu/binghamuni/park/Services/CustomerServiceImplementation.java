@@ -1,17 +1,18 @@
 package com.ng.edu.binghamuni.park.Services;
 
 import com.ng.edu.binghamuni.park.Domain.CustomerInformation;
-import com.ng.edu.binghamuni.park.Repository.CustomerRepository;
+import com.ng.edu.binghamuni.park.Repository.FormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerServiceImplementation implements CustomerService{
+public class CustomerServiceImplementation implements FormService{
 @Autowired
-    CustomerRepository customerRepository;
+    FormRepository customerRepository;
 
     @Override
     public CustomerInformation saveCustomer(CustomerInformation customer) {
@@ -20,17 +21,17 @@ public class CustomerServiceImplementation implements CustomerService{
 
     @Override
     public long getTotalWebAddSourceCount() {
-        return customerRepository.countByAdSource("Web");
+        return customerRepository.countByadSource("Web");
     }
 
     @Override
     public long getTotalNewspaperSourceCount() {
-        return customerRepository.countByAdSource("Newspaper");
+        return customerRepository.countByadSource("Newspaper");
     }
 
     @Override
     public long getTotalWordOfMouthSourceCount() {
-        return customerRepository.countByAdSource("Word of Mouth");
+        return customerRepository.countByadSource("WordOfMouth");
     }
 
 
