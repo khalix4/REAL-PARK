@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="billOfSaleStyle.css">
 </head>
 <body>
     <div>
         <form action="#" class="form">
-            <h1>Bill Of Sale</h1>
+            <h1 class="text-center header">Bill Of Sale</h1>
 
             <h3>1. LOCATION OF SALE.</h3>
             <P>
@@ -55,17 +56,19 @@
 
             <p> The above - Checked selection is in exchange for the possession and ownership of the mentor vehicle described in Section 4</p>
 
-            <div>
-                <input type="text" name="b_sign" id="b_sign">
-                Buyer's Signature
-            </div>
-            <div>
-                <input type="text" name="s_sign" id="s_sign">
-                Seller's Signature
+
+            <div class="signature-container">
+                <div class="sign-cont">
+                    <input type="text" name="b_sign" id="b_sign">
+                    <p>Buyer's Signature</p>
+                </div>
+                <div class="sign-cont">
+                    <input type="text" name="s_sign" id="s_sign">
+                    <p>Seller's Signature</p>
+                </div>
             </div>
 
-
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn text-center">Submit</button>
         </form>
     </div>
 </body>

@@ -1,0 +1,60 @@
+:root {
+    --primary-color: rgba(0,65,85,255);
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.form {
+    width: clamp(470px, 60%, 580px);
+    margin: 0 auto;
+    border: 20px solid #ccc;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #cccccc;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.text-center{
+    margin: 0 auto;
+}
+.header{
+    width: 50%;
+}
+
+.signature-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+}
+
+.sign-cont{
+    width: 50%;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-bottom: thin solid #000000;
+}
