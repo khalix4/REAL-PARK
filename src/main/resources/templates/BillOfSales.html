@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM
+        "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/css/billOfSaleStyle.css">
+    <link rel="stylesheet" th:href="@{/css/billOfSaleStyle.css}">
 </head>
 <body>
     <div>
-        <form action="#" class="form">
+        <form class="form">
             <h1 class="text-center header">Bill Of Sale</h1>
 
             <h3>1. LOCATION OF SALE.</h3>
@@ -68,7 +70,8 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn text-center">Print</button>
+            <button type="button" class="btn text-center">Print</button>
+            <button type="button" class ="btn text-center"> <a th:href="@{/showAdminForm}"> Go to Admin Page</a> </button>
         </form>
     </div>
 </body>
