@@ -75,35 +75,62 @@ public class CustomerServiceImplementation implements FormService{
         customerRepository.deleteById(id);
     }
 
-    public String calculateHighestAdSource() {
-        // Implement your logic to calculate the highest advertisement source
-        // For simplicity, let's assume you have a method in your repository to get the highest ad source
-        long webAd = customerRepository.countByadSource("Web");
-        long wordOfMouthAd = customerRepository.countByadSource("WordOfMouth");
-        long newspaperAd = customerRepository.countByadSource("Newspaper");
+ public String calculateHighestAdSources() {
+    
+    long webAd = customerRepository.countByadSource("Web");
+    long wordOfMouthAd = customerRepository.countByadSource("WordOfMouth");
+    long newspaperAd = customerRepository.countByadSource("Newspaper");
 
-        if (webAd > wordOfMouthAd && webAd > newspaperAd) {
-            return "Web";
-        } else if (wordOfMouthAd > webAd && wordOfMouthAd > newspaperAd) {
-            return "Word Of Mouth";
-        } else if (newspaperAd > webAd && newspaperAd > wordOfMouthAd) {
-            return "Newspaper";
-        } else {
-            // Handle the case where there's a tie or all counts are zero
-            return "No highest ad source found";
-        }
+    List<String> highestAdSources = new ArrayList<>();
+
+    long maxCount = Math.max(Math.max(webAd, wordOfMouthAd), newspaperAd);
+
+    if (webAd == maxCount) {
+        highestAdSources.add("Web");
+    }
+    if (wordOfMouthAd == maxCount) {
+        highestAdSources.add("Word Of Mouth");
+    }
+    if (newspaperAd == maxCount) {
+        highestAdSources.add("Newspaper");
     }
 
-    public double calculateHighestAdPercentage() {
-        // Implement your logic to calculate the highest advertisement percentage
-        // For simplicity, let's assume you have a method in your repository to get the total number of customers
-        long totalCustomers = customerRepository.countByadSource("Web");
-        int totalAds = customerRepository.findAll().size();; // Implement this method in your repository
-
-        if (totalCustomers > 0) {
-            return ((double) totalAds / totalCustomers) * 100;
+    if (!highestAdSources.isEmpty()) {
+        if (highestAdSources.size() == 1) {
+            return highestAdSources.get(0);
+        } else if (highestAdSources.size() == 2) {
+            return highestAdSources.get(0) + " & " + highestAdSources.get(1); // Return two sources separated by "&"
         } else {
-            return 0.0; // Avoid division by zero
+            return highestAdSources.get(0) + " & " + highestAdSources.get(1); // Return the first two sources
         }
+    } else {
+        return "No highest ad source found";
     }
+}
+
+
+   public double calculateHighestAdPercentage(String source) {
+    // Implement your logic to calculate the highest advertisement percentage
+    // For simplicity, let's assume you have a method in your repository to get the total number of customers
+    long webAd = customerRepository.countByadSource("Web");
+    long newspaperAd = customerRepository.countByadSource("Newspaper");
+    long wordOfMouthAd = customerRepository.countByadSource("WordOfMouth");
+    long totalCustomers = customerRepository.count(); // Use count method directly
+    
+    if (totalCustomers > 0) {
+        if ("Web".equals(source)) {
+            return ((double) webAd / totalCustomers) * 100;
+        } else if ("Newspaper".equals(source)) {
+            return ((double) newspaperAd / totalCustomers) * 100;
+        } else if ("WordOfMouth".equals(source)) {
+            return ((double) wordOfMouthAd / totalCustomers) * 100;
+        } else {
+            // Handle the case where the source is not recognized
+            return 0.0;
+        }
+    } else {
+        return 0.0; // Avoid division by zero
+    }
+}
+
 }
