@@ -70,7 +70,7 @@ public class APIController {
         @PostMapping ("/saveForm")
         public String saveForm(@ModelAttribute("customer") CustomerInformation customerInformation){
             formService.saveCustomer(customerInformation);
-            return "redirect:/showAdminForm";
+            return "redirect:/BillOfSales";
         }
 
 
