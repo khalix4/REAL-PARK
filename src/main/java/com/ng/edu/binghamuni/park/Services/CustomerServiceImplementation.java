@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,7 +76,17 @@ public class CustomerServiceImplementation implements FormService{
         customerRepository.deleteById(id);
     }
 
- public String calculateHighestAdSources() {
+    @Override
+    public String calculateHighestAdSource() {
+        return null;
+    }
+
+    @Override
+    public double calculateHighestAdPercentage() {
+        return 0;
+    }
+
+    public String calculateHighestAdSources() {
     
     long webAd = customerRepository.countByadSource("Web");
     long wordOfMouthAd = customerRepository.countByadSource("WordOfMouth");
