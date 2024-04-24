@@ -59,6 +59,10 @@ public class APIController {
         public String showAdminForm(){
                 return "adminForm";
         }
+    @GetMapping("/showBillOfSales")
+        public String showBillOfSales(){
+                return "BillOfSales";
+        }
 
     @GetMapping("/showFormTable")
     public String showFormTable(Model model){
@@ -70,7 +74,7 @@ public class APIController {
         @PostMapping ("/saveForm")
         public String saveForm(@ModelAttribute("customer") CustomerInformation customerInformation){
             formService.saveCustomer(customerInformation);
-            return "redirect:/BillOfSales";
+            return "redirect:/showBillOfSales";
         }
 
 
