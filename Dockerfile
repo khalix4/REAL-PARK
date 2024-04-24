@@ -1,7 +1,7 @@
-FROM openjdk
+FROM openjdk:17
 
 EXPOSE 8080
 
-ADD target/spring-boot-park.jar spring-boot-park.jar 
+ADD target/PARK-0.0.1-SNAPSHOT.jar PARK-0.0.1-SNAPSHOT.jar
 
-ENTRYPOINT [ "java","-jar","/spring-boot-park.jar" ]
+ENTRYPOINT [ "java","-jar","/PARK-0.0.1-SNAPSHOT.jar" ]
