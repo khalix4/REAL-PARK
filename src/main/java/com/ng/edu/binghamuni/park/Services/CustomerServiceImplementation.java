@@ -5,7 +5,7 @@ import com.ng.edu.binghamuni.park.Repository.FormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -131,6 +131,26 @@ public class CustomerServiceImplementation implements FormService{
     } else {
         return 0.0; // Avoid division by zero
     }
+}
+
+public FormRepository getCustomerRepository() {
+    return customerRepository;
+}
+
+public void setCustomerRepository(FormRepository customerRepository) {
+    this.customerRepository = customerRepository;
+}
+
+@Override
+public String calculateHighestAdSource() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'calculateHighestAdSource'");
+}
+
+@Override
+public double calculateHighestAdPercentage() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'calculateHighestAdPercentage'");
 }
 
 }
