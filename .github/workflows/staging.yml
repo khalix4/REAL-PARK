@@ -25,8 +25,10 @@ jobs:
     - name: Run tests with Maven
       run: mvn test
 
-    - name: Deploy to Vercel Staging
-      run: curl -X POST -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
-           -H "Content-Type: application/json" \
-           -d '{"name": "your-app-name", "projectSettings": {"framework": null}}' \
-           https://api.vercel.com/v12/now/deployments
+    - name: Deploy to Vercel Production
+      run: >
+        curl -X POST
+        -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}"
+        -H "Content-Type: application/json"
+        -d '{"name": "park", "projectSettings": {"framework": null}}'
+        https://api.vercel.com/v12/now/deployments
