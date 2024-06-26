@@ -1,0 +1,32 @@
+name: Staging Environment
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Run tests with Maven
+      run: mvn test
+
+    - name: Deploy to Vercel Staging
+      run: curl -X POST -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+           -H "Content-Type: application/json" \
+           -d '{"name": "your-app-name", "projectSettings": {"framework": null}}' \
+           https://api.vercel.com/v12/now/deployments
