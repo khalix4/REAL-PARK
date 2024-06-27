@@ -143,13 +143,13 @@ public void setCustomerRepository(FormRepository customerRepository) {
 
 @Override
 public String calculateHighestAdSource() {
-    // TODO Auto-generated method stub
+    
     throw new UnsupportedOperationException("Unimplemented method 'calculateHighestAdSource'");
 }
 
 @Override
 public double calculateHighestAdPercentage() {
-    // TODO Auto-generated method stub
+    
     throw new UnsupportedOperationException("Unimplemented method 'calculateHighestAdPercentage'");
 }
 
