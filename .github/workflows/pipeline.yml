@@ -1,4 +1,4 @@
-name: park workflow
+name: CI
 
 on:
   push:
@@ -13,47 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
-        distribution: 'temurin'  
+        distribution: 'adopt'
         java-version: '17'
-
-    - name: Cache Maven packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Run tests
-      run: mvn test
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-
-    - name: Deploy to Server
-      env:
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-      run: |
-        echo "Deploying to server..."
-        # Add your deployment commands here, for example:
-        # scp target/my-app.jar user@server:/path/to/deploy
+      run: mvn clean install
