@@ -1,4 +1,4 @@
-name: Java CI/CD Pipeline
+name: park workflow
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
-        distribution: 'temurin'  # Use 'temurin' for Eclipse Temurin JDK
+        distribution: 'temurin'  
         java-version: '17'
 
     - name: Cache Maven packages
