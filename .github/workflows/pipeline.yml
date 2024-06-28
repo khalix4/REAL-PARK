@@ -4,9 +4,7 @@ name: Java CI/CD Pipeline
 on:
   push:
     branches:
-      - develop
-      - staging
-      - main
+      - Main
   workflow_dispatch:
 
 jobs:
